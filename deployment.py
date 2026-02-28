@@ -16,11 +16,11 @@ import tensorflow as tf
 # ============================================================================
 
 # YOLO Configuration
-YOLO_MODEL_PATH = r'C:\Users\harsh\OneDrive\Desktop\Agrolens\tomato_trained_model.pt'
+YOLO_MODEL_PATH = r'C:\Users\harsh\Desktop\urf_project\Next-Gen_Agritech\tomato_trained_model.pt'
 YOLO_CONFIDENCE_THRESHOLD = 0.7
 
 # TensorFlow Lite Configuration
-TFLITE_MODEL_PATH = r"C:\Users\harsh\OneDrive\Desktop\Agrolens\tomato_disease_model.tflite"
+TFLITE_MODEL_PATH = "./tomato_disease_model.tflite"
 IMAGE_SIZE = (224, 224)
 CLASS_LABELS = ['Ripe', 'Unripe']
 
