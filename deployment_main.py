@@ -15,7 +15,7 @@ import tensorflow as tf
 # CONFIGURATION
 # ============================================================================
 
-YOLO_MODEL_PATH = r'C:\Users\harsh\Desktop\urf_project\Next-Gen_Agritech\tomato_trained_model.pt'
+YOLO_MODEL_PATH = r'./tomato_trained_model.pt'
 YOLO_CONFIDENCE_THRESHOLD = 0.7
 
 TFLITE_MODEL_PATH = "./tomato_disease_model.tflite"
@@ -123,7 +123,7 @@ class TomatoDetectionSystem:
             print(f"[TFLite] Classification error: {e}")
             return None, 0.0, None
 
-    # -------------------------------------------------------------------------
+    # ------------------------------------------------------------------------
     # MAIN PIPELINE: frame → YOLO → TFLite → annotated frame
     # -------------------------------------------------------------------------
     def process_frame(self, frame):
