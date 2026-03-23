@@ -16,7 +16,7 @@ import tensorflow as tf
 # ============================================================================
 
 YOLO_MODEL_PATH = r'./tomato_trained_model.pt'
-YOLO_CONFIDENCE_THRESHOLD = 0.7
+YOLO_CONFIDENCE_THRESHOLD = 0.800
 
 TFLITE_MODEL_PATH = "./tomato_disease_model.tflite"
 IMAGE_SIZE = (224, 224)
@@ -77,7 +77,22 @@ class TomatoDetectionSystem:
                 x1, y1, x2, y2 = [int(v) for v in box.xyxy[0].tolist()]
 
                 if 'tomato' in class_name.lower():
-                    # Confirmed tomato — pass to TFLite next
+                    width  = x2 - x1
+                    height = y2 - y1
+
+                    '''# Filter 1: must be reasonably sized
+                    # too small = noise, too large = probably not a tomato
+                    if width < 20 or height < 20:
+                        continue
+                    if width > 400 or height > 400:
+                        continue
+
+                    # Filter 2: must be roughly circular (tomatoes are round)
+                    # aspect ratio close to 1.0 means width ≈ height
+                    aspect_ratio = width / height
+                    if aspect_ratio < 0.6 or aspect_ratio > 1.6:
+                        continue'''
+
                     tomato_detections.append({
                         'bbox': [x1, y1, x2, y2],
                         'yolo_confidence': confidence,
