@@ -1,0 +1,22 @@
+description: Ultralytics tomato_trained_model model trained on YOLOV8\tomato.yaml
+author: Ultralytics
+date: '2026-03-27T09:52:23.211647'
+version: 8.4.23
+license: AGPL-3.0 License (https://ultralytics.com/license)
+docs: https://docs.ultralytics.com
+stride: 32
+task: detect
+batch: 1
+imgsz:
+- 320
+- 320
+names:
+  0: tomato
+args:
+  batch: 1
+  fraction: 1.0
+  half: false
+  int8: false
+  nms: false
+channels: 3
+end2end: false
