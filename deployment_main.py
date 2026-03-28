@@ -16,7 +16,7 @@ import tensorflow as tf
 # ============================================================================
 
 YOLO_MODEL_PATH = r'./tomato_trained_model.pt'
-YOLO_CONFIDENCE_THRESHOLD = 0.800
+YOLO_CONFIDENCE_THRESHOLD = 0.5
 
 TFLITE_MODEL_PATH = "./tomato_disease_model.tflite"
 IMAGE_SIZE = (224, 224)
@@ -203,7 +203,7 @@ class TomatoDetectionSystem:
 # MAIN LOOP
 # ============================================================================
 
-def run(camera_index=0):
+def run(camera_index=1):
     system = TomatoDetectionSystem()
 
     cap = cv2.VideoCapture(camera_index)
@@ -251,4 +251,4 @@ def run(camera_index=0):
 
 
 if __name__ == "__main__":
-    run(camera_index=0)
+    run(camera_index=1)
